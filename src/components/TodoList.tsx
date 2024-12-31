@@ -33,6 +33,7 @@ const TodoList: React.FC<props> = ({
                 todo={todo}
                 key={todo.id}
                 setTodos={setTodos}
+                priority={todo.priority}
               />
             ))}
             {provided.placeholder}
@@ -56,6 +57,7 @@ const TodoList: React.FC<props> = ({
                 todo={todo}
                 key={todo.id}
                 setTodos={setCompletedTodos}
+                priority={todo.priority}
               />
             ))}
             {provided.placeholder}

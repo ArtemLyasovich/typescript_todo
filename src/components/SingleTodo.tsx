@@ -10,7 +10,8 @@ const SingleTodo: React.FC<{
   todo: Todo;
   todos: Array<Todo>;
   setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
-}> = ({ index, todo, todos, setTodos }) => {
+  priority: "low" | "medium" | "high";
+}> = ({ index, todo, todos, setTodos, priority }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
@@ -47,7 +48,7 @@ const SingleTodo: React.FC<{
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={`todos__single ${snapshot.isDragging ? "drag" : ""}`}
+          className={`todos__single ${snapshot.isDragging ? "drag" : ""} ${priority}`}
         >
           {edit ? (
             <input
